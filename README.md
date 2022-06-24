@@ -17,7 +17,14 @@ June 2022
 ## Setup of Visual Studio Code
 
 * Install C/C++ extension from Microsoft.
-
+* In Visual Studio Code, make a simple C++ test file. 
+* Then, with that file open, go to Terminal > Configure Tasks > C/C++: g++.exe build active file.
+* Add "-std=c++23" flag to args in tasks.json to enforce C++ version 23.0 to be used by compiler.
+  * Can also set a label for the task in tasks.json.
+* C/C++ extension provides links on useful information on editing tasks.json, example [here](https://code.visualstudio.com/docs/cpp/config-mingw#_modifying-tasksjson).
   
+## Building and Running C++ Program
 
+* With a C++ file selected, go to Terminal > Run Task > *Label of task in tasks.json*, this creates an .exe file.
+* Can run file.exe with ./file in a terminal window.
 
