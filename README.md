@@ -16,6 +16,7 @@ June 2022
   
 ## Setup of Visual Studio Code
 
+* Make sure "Open with Code" option is available in Windows Explorer (can fix with reinstall of VS Code).
 * Install C/C++ extension from Microsoft.
 * In Visual Studio Code, make a simple C++ test file. 
 * Then, with that file open, go to Terminal > Configure Tasks > C/C++: g++.exe build active file.
@@ -29,6 +30,7 @@ June 2022
 ## Building and Running C++ Program
 
 * With a C++ file selected, go to Terminal > Run Task > *Label of task in tasks.json*, this creates an .exe file.
+  * Faster: after setting a default build task (Terminal > Configure Default Build Task), use Ctrl+Shift+B.
 * Can run file.exe with ./file in a terminal window.
 
 
