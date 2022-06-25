@@ -23,6 +23,8 @@ June 2022
   * Can also set a label for the task in tasks.json.
 * C/C++ extension provides links on useful information on editing tasks.json.
   * For example, can modify it to build all files in a directory and then write to a specific executable (see [here](https://code.visualstudio.com/docs/cpp/config-mingw#_modifying-tasksjson)).
+* To set up intellisense and more go to View > Command Palette > C/C++: Edit Configurations (UI).
+  * This adds the c_cpp_properties.json configuration file.
 
 ## Building and Running C++ Program
 
