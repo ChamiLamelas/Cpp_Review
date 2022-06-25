@@ -19,7 +19,7 @@ June 2022
 * Install C/C++ extension from Microsoft.
 * In Visual Studio Code, make a simple C++ test file. 
 * Then, with that file open, go to Terminal > Configure Tasks > C/C++: g++.exe build active file.
-* Add "-std=c++23" flag to args in tasks.json to enforce C++ version 23.0 to be used by compiler.
+* Add "-std=c++23" flag to args in tasks.json to enforce C++ version 23.0 to be used by GCC (use c++20 for clang see [here](https://clang.llvm.org/cxx_status.html)).
   * Can also set a label for the task in tasks.json.
 * C/C++ extension provides links on useful information on editing tasks.json.
   * For example, can modify it to build all files in a directory and then write to a specific executable (see [here](https://code.visualstudio.com/docs/cpp/config-mingw#_modifying-tasksjson)).
