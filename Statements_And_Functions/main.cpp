@@ -1,5 +1,13 @@
 #include <iostream>
 
+/*
+Variables named as all lowercase with underscores, functions with mixed case (starting with caps) following
+Google C++ style guide: https://google.github.io/styleguide/cppguide.html#Function_Names
+*/
+int AddNumbers(int first_num, int second_num) {
+    return first_num + second_num;
+}
+
 int main()
 {
     /*
@@ -18,5 +26,8 @@ int main()
 
     std::cout << "First: " << first_number << std::endl;
     std::cout << "Second: " << second_number << std::endl;
+
+    std::cout << "First + Second: " << AddNumbers(first_number, second_number) << std::endl;
+
     return 0;
 }
