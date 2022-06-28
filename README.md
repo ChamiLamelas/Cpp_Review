@@ -33,4 +33,12 @@ June 2022
   * Faster: after setting a default build task (Terminal > Configure Default Build Task), use Ctrl+Shift+B.
 * Can run file.exe with ./file in a terminal window.
 
+## C++ Terminology
+
+* C++ Core Features: basic rules of C++ (e.g. how {} work)
+* Standard Library: provided C++ utilities (e.g. iostream)
+  * STL: subset of Standard Library that holds containers.
+
+
+
 
