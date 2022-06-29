@@ -4,6 +4,7 @@ int main()
 {
     std::cout << "sizeof(bool) = " << sizeof(bool) << std::endl;
 
+    // Can also set to 1 and 0
     bool true_var{true};
     bool false_var{false};
 
