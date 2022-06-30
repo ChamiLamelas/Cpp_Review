@@ -73,7 +73,7 @@ int main()
     std::cout << "sizeof(size_t) = " << sizeof(size_t) << std::endl;
 
     // Note that auto doesn't seem to infer size_t from a loop and instead just uses an integer (sizeof(x) = 4 while sizeof(size_t) = 8)
-    for (auto x = 0; x < 10; x++)
+    for (auto x {0}; x < 10; x++)
     {
         if (x == 9)
         {
