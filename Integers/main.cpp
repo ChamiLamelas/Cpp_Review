@@ -49,5 +49,21 @@ int main()
     std::cout << "min(short) = " << std::numeric_limits<short>::min() << "\nmax(short) = " << std::numeric_limits<short>::max() << std::endl;
     std::cout << "min(unsigned int) = " << std::numeric_limits<unsigned int>::min() << "\nmax(unsigned int) = " << std::numeric_limits<unsigned int>::max() << std::endl;
 
+    /*
+    C++ limits which integer types support arithmetic operations. In particular int (4 bytes) is the smallest integer type
+    that supports these operations. Thus, when chars or shorts are added they are implicitly converted to int first and
+    thus auto will deduce int because it sees a sum of 2 ints.
+    */
+
+    char char1 {10};
+    char char2 {20};
+    auto char_sum {char1 + char2};
+    std::cout << "adding chars: " << sizeof(char1) << " -> " << sizeof(char_sum) << std::endl;
+
+    short short1 {10};
+    short short2 {20};
+    auto short_sum {short1 + short2};
+    std::cout << "adding shorts: " << sizeof(short1) << " -> " << sizeof(short_sum) << std::endl;
+
     return 0;
 }

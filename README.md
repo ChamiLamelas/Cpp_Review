@@ -40,9 +40,12 @@ June 2022
 * Standard Library: provided C++ utilities (e.g. iostream)
   * STL: subset of Standard Library that holds containers.
 
-## C++ Precedence
+## Miscellaneous Links
 
-* See the documentation [here](https://en.cppreference.com/w/cpp/language/operator_precedence).
+* Documentation on C++ precedence [here](https://en.cppreference.com/w/cpp/language/operator_precedence).
+* Documentation on basic C++ math functions [here](https://en.cppreference.com/w/cpp/header/cmath).
+
+
 
 
 
