@@ -17,4 +17,9 @@ int main()
     std::cout << std::boolalpha;
     std::cout << "true_var = " << true_var << std::endl;
     std::cout << "false_var = " << false_var << std::endl;
+
+    // Make sure to surround boolean expressions in () when printing them - otherwise it won't compile
+    std::cout << (true_var == false_var) << std::endl;
+
+    
 }
