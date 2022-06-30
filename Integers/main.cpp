@@ -55,15 +55,31 @@ int main()
     thus auto will deduce int because it sees a sum of 2 ints.
     */
 
-    char char1 {10};
-    char char2 {20};
-    auto char_sum {char1 + char2};
+    char char1{10};
+    char char2{20};
+    auto char_sum{char1 + char2};
     std::cout << "adding chars: " << sizeof(char1) << " -> " << sizeof(char_sum) << std::endl;
 
-    short short1 {10};
-    short short2 {20};
-    auto short_sum {short1 + short2};
+    short short1{10};
+    short short2{20};
+    auto short_sum{short1 + short2};
     std::cout << "adding shorts: " << sizeof(short1) << " -> " << sizeof(short_sum) << std::endl;
+
+    /*
+    size_t is the common size type and thus also used as a loop iterator, see here that it is an alias for some compiler
+    determined unsigned integer type: https://cplusplus.com/reference/cstring/size_t/
+    */
+    size_t counter{0};
+    std::cout << "sizeof(size_t) = " << sizeof(size_t) << std::endl;
+
+    // Note that auto doesn't seem to infer size_t from a loop and instead just uses an integer (sizeof(x) = 4 while sizeof(size_t) = 8)
+    for (auto x = 0; x < 10; x++)
+    {
+        if (x == 9)
+        {
+            std::cout << "sizeof(iterating variable) = " << sizeof(x) << std::endl;
+        }
+    }
 
     return 0;
 }
