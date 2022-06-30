@@ -1,4 +1,5 @@
 #include <iostream>
+#include <limits>
 
 int main()
 {
@@ -42,6 +43,11 @@ int main()
     std::cout << "sizeof(long int) = " << sizeof(long int) << std::endl;
     std::cout << "sizeof(long long) = " << sizeof(long long) << std::endl;
     std::cout << "sizeof(long long int) = " << sizeof(long long int) << std::endl;
+
+    // Can get limits of integer types (only 3 listed here for simplicity, for more capabilities beyond min, max: https://en.cppreference.com/w/cpp/types/numeric_limits)
+    std::cout << "min(int) = " << std::numeric_limits<int>::min() << "\nmax(int) = " << std::numeric_limits<int>::max() << std::endl;
+    std::cout << "min(short) = " << std::numeric_limits<short>::min() << "\nmax(short) = " << std::numeric_limits<short>::max() << std::endl;
+    std::cout << "min(unsigned int) = " << std::numeric_limits<unsigned int>::min() << "\nmax(unsigned int) = " << std::numeric_limits<unsigned int>::max() << std::endl;
 
     return 0;
 }
