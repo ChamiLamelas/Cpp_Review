@@ -6,6 +6,7 @@ June 2022
 
 * Beginner to Advanced course on YouTube [here](https://www.youtube.com/watch?v=8jLOx1hD3_o).
   * Associated GitHub repository [here](https://github.com/rutura/The-C-20-Masterclass-Source-Code).
+* Other links are in the source files.
   
 ## Installation of C++ Compilers (Windows 10)
   
