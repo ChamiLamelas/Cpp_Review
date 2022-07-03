@@ -1,6 +1,6 @@
 # C++ Review
 
-June 2022
+*June, 2022*
 
 ## Materials
 
