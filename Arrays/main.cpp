@@ -54,10 +54,10 @@ int main()
     character arrays with the null character implicitly added (see print). https://cplusplus.com/doc/tutorial/ntcs/
 
     At first, I wondered why "hello" can be put into a char[] not a const char[] (as it's an array of 6 const char
-    see here: https://stackoverflow.com/questions/15508148/what-is-the-type-of-a-string-literal-in-c). 
+    see here: https://stackoverflow.com/questions/15508148/what-is-the-type-of-a-string-literal-in-c).
 
     It turns out the contents of const char[] hello are put into char[] when you do char x[] = "hello" versus assigning
-    a non const pointer to the same location to a const pointer: 
+    a non const pointer to the same location to a const pointer:
     https://stackoverflow.com/questions/7564033/difference-between-char-and-char
     */
     char c_str_literal[]{"hello"};
@@ -68,6 +68,29 @@ int main()
 
     // C++ allows you to index beyond array bounds (can give garbage or crash due to restricted memory protection from OS)
     std::cout << counts[5] << " " << counts[-1] << std::endl;
+
+    // Dynamically allocated arrays
+    int *dma_array{new int[10]};
+    int *dma_array2{new int[10]{}};
+
+    // First element shows dma_array is initialized to 10 garbage values
+    std::cout << *dma_array << " " << dma_array[0] << std::endl;
+
+    // First element shows dma_array2 is initialized to 10 0s
+    std::cout << *dma_array2 << " " << dma_array2[0] << std::endl;
+
+    // Recall a[i] = *(a+i) (see here on refresher of pointer arithmetic: https://stackoverflow.com/a/4772941)
+
+    // Free dynamically allocated arrays with delete[] (set to nullptr as with regular pointers)
+    delete[] dma_array;
+    dma_array = nullptr;
+    delete[] dma_array2;
+    dma_array2 = nullptr;
+
+    /*
+    Cannot use range based loop or std::size on dynamically allocated arrays like you can on stack
+    allocated also known as static arrays. Arrays allocated on heap are known as dynamic arrays.
+    */
 
     return 0;
 }
