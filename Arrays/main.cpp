@@ -53,8 +53,10 @@ int main()
     Can also initialize character arrays with string literals. This is because string literals are really (const)
     character arrays with the null character implicitly added (see print). https://cplusplus.com/doc/tutorial/ntcs/
 
-    At first, I wondered why "hello" can be put into a char[] not a const char[] (as it's technially a const char*). 
-    It turns out the contents of const char * hello are put into char[] when you do char x[] = "hello" versus assigning
+    At first, I wondered why "hello" can be put into a char[] not a const char[] (as it's an array of 6 const char
+    see here: https://stackoverflow.com/questions/15508148/what-is-the-type-of-a-string-literal-in-c). 
+
+    It turns out the contents of const char[] hello are put into char[] when you do char x[] = "hello" versus assigning
     a non const pointer to the same location to a const pointer: 
     https://stackoverflow.com/questions/7564033/difference-between-char-and-char
     */
