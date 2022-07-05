@@ -31,6 +31,11 @@ int main()
     // char *bad_p_str{"Hello World"};
     const char *p_str{"Hello World"};
 
+    // Note can print char * directly w/o having to dereference (special like char arrays)
+    char chrs[]{"Yellow"};
+    char *chrs_ptr{chrs};
+    std::cout << p_str << " " << chrs_ptr << std::endl;
+
     // Dynamic Memory Allocation (allocating space for an integer on the heap - value is garbage)
     int *dma_ptr{new int};
     std::cout << *dma_ptr << std::endl;
