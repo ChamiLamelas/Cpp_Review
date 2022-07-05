@@ -41,6 +41,12 @@ int main()
     // Calculating the size (since C++ 17)
     std::cout << std::size(counts) << std::endl;
 
+    /*
+    Cannot reassign arrays to something else as if it were a pointer in C++ (compilation fails, 
+    believe this is also true in C)
+    */
+    // counts = scores;
+
     // Initializing a char array with a C-style string - must terminate with null character \0
     char c_str[]{'h', 'e', 'l', 'l', 'o', '\0'};
     char c_str_wrong[]{'h', 'e', 'l', 'l', 'o'};
