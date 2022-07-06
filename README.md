@@ -44,8 +44,8 @@
 
 * Documentation on C++ precedence [here](https://en.cppreference.com/w/cpp/language/operator_precedence).
 * Documentation on basic C++ math functions [here](https://en.cppreference.com/w/cpp/header/cmath).
-
-
+* Initialization types in C++ [here](https://subscription.packtpub.com/book/programming/9781786465184/1/ch01lvl1sec7/understanding-uniform-initialization) and Initialization of Variables [here](https://cplusplus.com/doc/tutorial/variables/).
+* Initializer lists [here](https://cplusplus.com/reference/initializer_list/initializer_list/).
 
 
 

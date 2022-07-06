@@ -1,6 +1,0 @@
-{
-    "files.associations": {
-        "*.bat": "bat",
-        "iostream": "cpp"
-    }
-}
