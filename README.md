@@ -40,6 +40,18 @@
 * Standard Library: provided C++ utilities (e.g. iostream)
   * STL: subset of Standard Library that holds containers.
 
+## One Definition Rule
+
+* One Definition Rule (ODR) on [Wikipedia](https://en.wikipedia.org/wiki/One_Definition_Rule) and [standard](https://en.cppreference.com/w/cpp/language/definition#One_Definition_Rule).
+* Cannot declare and define the same variable in the same scope or across multiple files at the global scope. 
+  * Defining is assigning a value to a variable.
+* Same applies for functions, declaration of a function is the function header, definition is the function body.
+* These lead to compilation failure.
+* Classes or structs can be defined in multiple files but not in the same [translation unit](https://en.wikipedia.org/wiki/Translation_unit_(programming)) which can be thought of as a single file. 
+  * I assume this is allow for multiple class implementations, but why is this not allowed with functions? 
+* ODR is enforced by the linker. The linker checks all translation units (source files with included files copied in by the compiler) for definitions (to make sure a function is defined) and that there are not two definitions for the same function.
+  * It is just custom (for clarity) to name the implementation of `x.h` as `x.cpp` but the functions could be placed in `y.cpp` because the linker checks all files that are built.
+
 ## Miscellaneous Links
 
 * Documentation on C++ precedence [here](https://en.cppreference.com/w/cpp/language/operator_precedence).
