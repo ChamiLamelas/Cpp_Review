@@ -145,5 +145,66 @@ int main()
     s2 = ReturnByValue2();
     std::cout << "Inside main: &s2 = " << &s2 << std::endl;
 
+    /*
+    Lambda function. [] specifies the capture list which can take captures (variables
+    from the outer scope that can be used in the lambda function) see here:
+    https://en.cppreference.com/w/cpp/language/lambda#Lambda_capture
+
+    ->double specifies the return type as double and is not necessary.
+
+    Use auto to deduce type of lambda function, can also call inline. This doesn't say
+    how you would pass a function as a parameter in C++ specifically (maybe use functional
+    library?). To do it in C (I assume valid in C++ as well):
+    https://stackoverflow.com/questions/9410/how-do-you-pass-a-function-as-a-parameter-in-c
+
+    Also can look at:
+    https://github.com/ChamiLamelas/Learning_C_K_and_R/blob/master/ch6_structures/6.6_table_lookup/chaining_hash_table.c
+
+    This article (requires further reading) discusses it in C++ (note that capture lists cause
+    issues):
+    https://stackoverflow.com/questions/16111285/how-to-pass-and-execute-anonymous-function-as-parameter-in-c11
+
+    Demo #1 prints demonstrate how capture list is done by copy (addresses are different of c).
+    Demo #2 prints demonstrates how capture list is done by reference (addresses are same of d).
+    */
+
+    int c{3};
+    std::cout << "main &c = " << &c << std::endl;
+    auto f = [c](double b) -> double
+    {
+        std::cout << "lambda &c = " << &c << std::endl;
+        // c comes from outer scope via capture list, b is a parameter
+        return c + b;
+    };
+    std::cout << f(2) << std::endl;
+
+    int d{3};
+    std::cout << "main &d = " << &d << std::endl;
+    auto g = [&d](double b)
+    {
+        std::cout << "lambda &d = " << &d << std::endl;
+        // d comes from outer scope via capture list, b is a parameter
+        return d + b;
+    };
+    std::cout << g(2) << std::endl;
+
+    // Capture all variables in the outer scope by copy
+    auto h = [=](double b)
+    {
+        std::cout << "lambda &d = " << &d << std::endl;
+        // d comes from outer scope via capture list, b is a parameter
+        return d + b;
+    };
+    std::cout << h(2) << std::endl;
+
+    // Capture all variables in the outer scope by reference
+    auto l = [&](double b)
+    {
+        std::cout << "lambda &d = " << &d << std::endl;
+        // d comes from outer scope via capture list, b is a parameter
+        return d + b;
+    };
+    std::cout << l(2) << std::endl;
+
     return 0;
 }
