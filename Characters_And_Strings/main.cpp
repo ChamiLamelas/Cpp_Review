@@ -9,6 +9,9 @@
 // Class string: https://cplusplus.com/reference/string/string/
 #include <string>
 
+// Read only string class: see below
+#include <string_view>
+
 int main()
 {
     std::cout << "sizeof(char) = " << sizeof(char) << std::endl;
@@ -122,17 +125,58 @@ int main()
     */
     chr_arr_str = "Hello World";
     std::cout << chr_arr_str << std::endl;
-    
+
     /*
     In the video, he says that using a raw pointer with a string literal (const char *)
     is worse because space is leftover. However, this does not seem entirely true as the
-    implementation of string literals in C++ is hidden (see: 
+    implementation of string literals in C++ is hidden (see:
     https://stackoverflow.com/a/9504612 which discusses also how these pointers should
     not be freed upon reassignment as they weren't necessarily on the heap).
 
     However, he is correct that any memory that is heap allocated used by std::string is
-    cleaned up in reassignment: https://stackoverflow.com/a/3601514 
+    cleaned up in reassignment: https://stackoverflow.com/a/3601514
     */
+
+    /*
+    In his video on overloading functions, he brings up a string_view (documentation:
+    https://en.cppreference.com/w/cpp/string/basic_string_view) but doesn't explain
+    what it is really. A string_view is a special type that represents a read only view of
+    a string that is owned elsewhere (see here on what ownership means in programming:
+    https://stackoverflow.com/a/49025071).
+
+    The purpose of string_view is to provide a more efficient way to pass around string
+    data that only has to be read. It allows for a variety of non modification operations
+    (see documentation).
+
+    They can be initialized from string literals as well as string objects (because string
+    supports an implicit conversion to a string_view see
+    https://en.cppreference.com/w/cpp/string/basic_string_view/basic_string_view and
+    https://en.cppreference.com/w/cpp/string/basic_string/operator_basic_string_view).
+
+    On a related note, one is able to implement implicit conversion operators for custom types:
+    https://en.cppreference.com/w/cpp/language/cast_operator
+
+    Another thing that came up in constexpr, which is used to mark an expression (variable, function,
+    etc.) as able to be evaluated at compile time (see here:
+    https://en.cppreference.com/w/cpp/language/constant_expression).
+
+    For more about string_view such as conversions from string_view to string, see here:
+    https://www.learncpp.com/cpp-tutorial/introduction-to-stdstring_view/
+
+    Another question is: why use string_view over const string&? See below link (big one is O(1) substr):
+    https://stackoverflow.com/questions/40127965/how-exactly-is-stdstring-view-faster-than-const-stdstring
+
+    One thing that I am not entirely sure about (perhaps this is just a defintion) is why, if a string_view
+    is implemented as a char * and a size, does it not support a [] operator that allows character modification
+    of its contents (not growing).
+    */
+
+    std::string s{"hello"};
+    std::string_view sv{s};
+    std::string_view ssv{sv.substr(0, 2)};
+    std::cout << s << " " << sv << " " << ssv << std::endl;
+    s[0] = 'j';
+    std::cout << s << " " << sv << " " << ssv << std::endl;
 
     return 0;
 }
