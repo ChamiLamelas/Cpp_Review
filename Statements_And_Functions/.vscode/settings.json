@@ -1,6 +1,14 @@
 {
     "files.associations": {
         "*.bat": "bat",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "*.tcc": "cpp",
+        "functional": "cpp",
+        "bit": "cpp",
+        "string_view": "cpp",
+        "random": "cpp",
+        "istream": "cpp",
+        "limits": "cpp",
+        "numeric": "cpp"
     }
 }
