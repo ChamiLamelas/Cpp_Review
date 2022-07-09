@@ -117,6 +117,16 @@ int main()
     std::cout << "Inside main after: z = " << z << " Address: " << &z << std::endl;
 
     /*
+    Note that you cannot pass literals to functions that take parameters by reference. This is because
+    references must be set to an already initialized variable. That is, int &x = 3 would not be valid
+    syntax. 
+
+    If you want to avoid extra copys being made but still use literals, you can do this with strings
+    nicely if instead of doing const string&, use string_view
+    */
+    // PassByReference(2);
+
+    /*
     ReturnByValue and ReturnByValue2 both return values.
 
     Demo #1 output shows that a copy is made of the returned data in ReturnByValue to be placed in a in main.
