@@ -14,7 +14,7 @@ public:
     in cpp! Linker will fail (build).
     */
     ThirdCylinder();
-    ThirdCylinder(double base_radius, double height);
+    ThirdCylinder(double b_r, double h);
     double GetBaseRadius();
     double GetHeight();
     void SetBaseRadius(double base_radius);

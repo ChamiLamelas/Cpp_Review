@@ -14,11 +14,13 @@ ThirdCylinder::ThirdCylinder()
     this->height = 1.0;
 }
 
-ThirdCylinder::ThirdCylinder(double base_radius, double height)
-{
-    this->base_radius = base_radius;
-    this->height = height;
-}
+/*
+Alternative form of initializing member variables is using what's called an
+initialization list. Note, for this to be possible, the parameter names must
+be different than the member variable names (as this-> cannot be used in
+the list). See Rao Lesson 9.
+*/
+ThirdCylinder::ThirdCylinder(double b_r, double h) : base_radius(b_r), height(h) {}
 
 double ThirdCylinder::GetBaseRadius()
 {
