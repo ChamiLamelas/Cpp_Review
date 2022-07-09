@@ -35,6 +35,12 @@ double Max(int first_num, double second_num) {
 If we called Max on two integers, this code fails to compile because it's ambiguous which Max
 should be called because there is no way to choose between the two above Max for two integers (Do
 you pick the first or second integer to be cast to double?)
+
+Note also that whether parameters are passed by value or reference and the constantness of the 
+parameters both have no effect on the signature. Thus, this isn't valid overloading:
+
+int Max(int a, int b)
+const int& Max(const int& a, const int& b)
 */
 double Max(double first_num, double second_num)
 {
