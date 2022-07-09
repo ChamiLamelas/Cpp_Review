@@ -6,6 +6,7 @@
 
 * Beginner to Advanced course on YouTube [here](https://www.youtube.com/watch?v=8jLOx1hD3_o).
   * Associated GitHub repository [here](https://github.com/rutura/The-C-20-Masterclass-Source-Code).
+* Sams Teach Yourself C++ in One Hour a Day [Barnes & Noble](https://www.barnesandnoble.com/w/sams-teach-yourself-c-in-one-hour-a-day-siddhartha-rao/1107087353).
 * Other links are in the source files.
   
 ## Installation of C++ Compilers (Windows 10)
