@@ -14,7 +14,7 @@ class FirstCylinder
     as it is common to leave them uninitialized which is impossible with references).
 
     structs and classes can be used interchangeably. The only difference is that by default
-    struct memebrs are public. structs are generally used to build small types with all public
+    struct members are public. structs are generally used to build small types with all public
     members (see here for supporting answer: https://stackoverflow.com/a/54596).
 
     sizeof(object) is the sum of sizeof(m) for each member m of the object. This may yield
@@ -132,5 +132,5 @@ int main()
     delete pd;
     Dog d2("bassett hound", "sebastian", 2);
 
-        return 0;
+    return 0;
 }
