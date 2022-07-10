@@ -134,5 +134,8 @@ int main()
         e->draw();
     }
 
+    // Sizes for comparison with Polymorphism
+    std::cout << sizeof(Shape) << " " << sizeof(Oval) << " " << sizeof(Circle) << std::endl;
+
     return 0;
 }
