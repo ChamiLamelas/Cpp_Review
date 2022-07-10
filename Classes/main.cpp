@@ -43,7 +43,10 @@ private:
 public:
     /*
     If this was removed, then the compiler will not generate an empty constructor
-    if another constructor was provided (as below).
+    if another constructor was provided (as below). Note, it is good practice to
+    always provide a default constructor especially when a class is going to be
+    used in an inheritance hierarchy because it will be called automatically
+    if the class serves as the base for other classes
 
     Shorthand for telling the compiler to create an empty constructor is:
 
