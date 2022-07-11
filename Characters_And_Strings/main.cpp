@@ -12,6 +12,9 @@
 // Read only string class: see below
 #include <string_view>
 
+// STL algorithms
+#include <algorithm>
+
 int main()
 {
     std::cout << "sizeof(char) = " << sizeof(char) << std::endl;
@@ -177,6 +180,92 @@ int main()
     std::cout << s << " " << sv << " " << ssv << std::endl;
     s[0] = 'j';
     std::cout << s << " " << sv << " " << ssv << std::endl;
+
+    std::cout << "\n\n---- Rao Lesson 16 ----" << std::endl;
+
+    // Concatenation
+    std::string sample_str_1{"A"};
+    std::string sample_str_2{"B"};
+    std::string sample_str_3{"C"};
+    const char *sample_char_1{"D"};
+
+    // += uses append: https://stackoverflow.com/a/45067502
+    sample_str_1 += sample_str_3;
+    std::cout << sample_str_1 << std::endl;
+
+    // append can also take a const char *
+    sample_str_2.append(sample_str_3);
+    std::cout << sample_str_2 << std::endl;
+    sample_str_2.append(sample_char_1);
+    std::cout << sample_str_2 << std::endl;
+
+    /*
+    find() can take const char *, char, or string, also has overloaded version
+    where find can begin from an offset position. Also find_last_of for searching
+    from the end.
+    */
+    std::string sample_str_4{"ABAC"};
+    auto idx{sample_str_4.find("A")};
+    std::cout << "Index of A (const char *): " << idx << std::endl;
+    idx = sample_str_4.find(sample_str_1);
+    std::cout << "Index of " << sample_str_1 << ": " << idx << std::endl;
+    idx = sample_str_4.find('A');
+    std::cout << "Index of A (char):" << idx << std::endl;
+
+    // std::string::npos returned if find unsuccessful
+    if (sample_str_4.find('D') == std::string::npos)
+    {
+        std::cout << "Could not find D in " << sample_str_4 << std::endl;
+    }
+
+    // Deleting from strings (in place)
+    // Can specify range using start point and count
+    std::string sample_str_5{"ABCD"};
+    sample_str_5.erase(1, 2);
+    std::cout << sample_str_5 << std::endl;
+
+    // Can specify range with string iterators
+    std::string sample_str_6{"ABCD"};
+    sample_str_6.erase(sample_str_6.begin(), sample_str_6.begin() + 2);
+    std::cout << sample_str_6 << std::endl;
+
+    // Can specify a single iterator (to remove 1 char)
+    std::string sample_str_7{"ABCD"};
+    sample_str_7.erase(sample_str_7.begin());
+    std::cout << sample_str_7 << std::endl;
+
+    /*
+    Looking at string iterators, point to character (hover over autos).
+    Use cbegin, cend for const_iterators (can't modify contents even
+    if string called on is non-const)
+    */
+    std::string sample_str_8{"ABCD"};
+    auto start_8{sample_str_8.begin()};
+    auto start_8_data{*start_8};
+    *start_8 = 'F';
+    std::cout << sample_str_8 << std::endl;
+
+    /*
+    Using algorithm functions with strings
+
+    To use find(first,last,val), val must match the type of data pointed
+    to by string iterators (which is char). find will return an iterator
+    from the range specified by first,last (hover over auto for type)
+    */
+    auto find_B_4{std::find(sample_str_4.begin(), sample_str_4.end(), 'B')};
+
+    // Use reverse with string iterators
+    std::string sample_str_9{"ABCD"};
+    std::reverse(sample_str_9.begin(), sample_str_9.end());
+    std::cout << sample_str_9 << std::endl;
+
+    /*
+    Use transform to change case in place. If we want to do this to another
+    string, that other string must have space, see: https://stackoverflow.com/a/1489335
+    */
+    std::string sample_str_10{"ABCD"};
+    std::transform(sample_str_10.begin(), sample_str_10.end(), sample_str_10.begin(), tolower);
+    std::cout << sample_str_10 << std::endl;
 
     return 0;
 }
