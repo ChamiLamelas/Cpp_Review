@@ -6,6 +6,7 @@
 class Shape
 {
 public:
+    // You should not use default arguments with virtual functions as it can lead to strange results
     virtual void draw()
     {
         std::cout << "shape drawn" << std::endl;
@@ -25,6 +26,13 @@ public:
     Shape *s{&oval} and did s->draw() it would still call Shape draw
     because it couldn't find a draw in Oval (so compilation and runtime
     pass, but we get a weird result).
+
+    Also, it is not required that overriden virtual methods in the
+    derived class are also marked virtual, in fact the virtual is
+    carried down the inheritance hierarchy. However, it is considered
+    good practice to include the virtual to indicate that it is
+    a function being passed down the inheritance hierachy and will
+    be executed following polymorphism rules at runtime.
     */
     virtual void draw() override
     {
