@@ -102,7 +102,7 @@ int main()
     /*
     When pass by reference is used in C++, we can actually modify the value of the variable being aliased, not
     just its properties. This is different than Java "pass by reference" which is more akin to C++ pass by
-    pointer (see https://stackoverflow.com/a/3869589).
+    pointer (see https://stackoverflow.com/a/3869589, https://stackoverflow.com/a/9185554).
 
     The implementation of C++ pass by reference is most likely done with pointers (see here
     https://stackoverflow.com/a/2936886). It was introduced so the programmer doesn't have to
