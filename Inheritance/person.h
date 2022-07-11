@@ -39,12 +39,36 @@ public:
     /*
     We have to mark these two functions as const so they can be called on
     const objects (as they do not modify member variables). To see how
-    this works under the hood, see here: https://stackoverflow.com/a/3141107
+    this works under the hood, see here: https://stackoverflow.com/a/3141107.
+    Note defining a function as const restricts you from modifying any
+    member variables (error is expression must be modifiable lvalue). By
+    marking a function const, C++ seems to mark all member variables as 
+    no longer modifiable lvalues.
 
     We have to specifically do this for this demo because operator<< for
     Player objects takes a const Player and since Player can only access
     first_name, last_name via these member functions, they are called
     there (and to compile, must be marked const).
+
+    This is more powerful than the capabilities of final in Java. Consider
+    this Java code:
+    
+    public class Child {
+        private int x;
+        public Child() { x = 0; }
+        public void change() { x++; }
+    }
+
+    Main: 
+
+    final Child c = new Child();
+    c.change();
+
+    This is perfectly fine. final stops Java references from pointing to something
+    else (like c = null). Thinking of Java references like C++ pointers (discussed
+    previously in Statements and Functions), this would be more like adding a const
+    after * for a C++ pointer (recall: https://stackoverflow.com/a/1143272). A
+    C++ const at the beginning restricts modification to member variables.
     */
     const std::string &GetFirstName() const;
     const std::string &GetLastName() const;
