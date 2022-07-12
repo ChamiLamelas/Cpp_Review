@@ -15,6 +15,9 @@
 // STL algorithms
 #include <algorithm>
 
+// String conversions
+#include <sstream>
+
 int main()
 {
     std::cout << "sizeof(char) = " << sizeof(char) << std::endl;
@@ -266,6 +269,26 @@ int main()
     std::string sample_str_10{"ABCD"};
     std::transform(sample_str_10.begin(), sample_str_10.end(), sample_str_10.begin(), tolower);
     std::cout << sample_str_10 << std::endl;
+
+    // Use stringstream to get string version of integer
+    std::stringstream int_to_str;
+    int_to_str << 42;
+    std::string str1;
+    int_to_str >> str1;
+    std::cout << str1 << std::endl;
+
+    // Use stringstream to get integer version of string
+    std::stringstream str_to_int;
+    str_to_int << "42";
+    int int1;
+    str_to_int >> int1;
+    std::cout << int1 << std::endl;
+
+    /*
+    Rao doesn't discuss how stringstream works with invalid inputs, these may be useful:
+    https://stackoverflow.com/questions/2844817/how-do-i-check-if-a-c-string-is-an-int
+    https://stackoverflow.com/questions/24504582/how-to-test-whether-stringstream-operator-has-parsed-a-bad-type-and-skip-it
+    */
 
     return 0;
 }
