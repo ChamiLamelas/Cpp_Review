@@ -172,6 +172,14 @@ int main()
     Another question is: why use string_view over const string&? See below link (big one is O(1) substr):
     https://stackoverflow.com/questions/40127965/how-exactly-is-stdstring-view-faster-than-const-stdstring
 
+    If a function takes const string& and you pass a literal (const char *) then a temporary string is
+    created in order to be passed as reference via the string& (see: https://stackoverflow.com/a/63531472).
+    I assume this is special behavior implemented into C++ to deal with the C practice of using const char *.
+    Therefore, (I believe) this means the behavior will degrade to as if the function took a string by value
+    as a string constructor will be called on the input const char * that takes a const char * creating
+    a temporary object too (all I could find online was here: https://stackoverflow.com/a/63637856 and
+    https://stackoverflow.com/a/9348618)
+
     One thing that I am not entirely sure about (perhaps this is just a defintion) is why, if a string_view
     is implemented as a char * and a size, does it not support a [] operator that allows character modification
     of its contents (not growing).
