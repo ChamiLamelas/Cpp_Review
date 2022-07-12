@@ -3,6 +3,7 @@
 #include <vector>
 #include <algorithm>
 #include <string>
+#include <string_view>
 
 template <typename T>
 void DisplayContainer(const T &container)
@@ -46,7 +47,9 @@ public:
     become invalidated upon function return as all it does is provide a pointer to
     the contents of a string (see: https://stackoverflow.com/a/27627466)
     */
-    Record(const std::string &n, const std::string &pn) : name(n), phone_number(pn), display("[" + n + " " + pn + "]") {}
+    Record(std::string_view n, std::string_view pn) : name(n), phone_number(pn) {
+        display = "[" + name + " " + phone_number + "]";
+    }
 
     // Defines how list::remove (and Record equality in general) will work
     bool operator==(const Record &other) const
