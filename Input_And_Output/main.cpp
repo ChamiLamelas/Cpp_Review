@@ -38,4 +38,10 @@ int main() {
     std::cin.ignore();
     std::getline(std::cin, string_input);
     std::cout << "string input = " << string_input << std::endl;
+
+    /*
+    Not discussed in video what to do with invalid inputs (say trying to parse int), these may be useful:
+    https://stackoverflow.com/questions/24504582/how-to-test-whether-stringstream-operator-has-parsed-a-bad-type-and-skip-it
+    https://stackoverflow.com/questions/2844817/how-do-i-check-if-a-c-string-is-an-int
+    */
 }
