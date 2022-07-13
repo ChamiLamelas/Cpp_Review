@@ -183,6 +183,12 @@ int main()
     One thing that I am not entirely sure about (perhaps this is just a defintion) is why, if a string_view
     is implemented as a char * and a size, does it not support a [] operator that allows character modification
     of its contents (not growing).
+
+    Sometimes you will have to write functions that take const string& if those functions use library functions
+    that also take const string& (a string would have to be created from the string_view to then pass via 
+    reference thus defeating the purpose of avoiding a copy). See these articles:
+    https://stackoverflow.com/questions/70019717/replace-const-stdstring-passed-by-reference-with-stdstring-view
+    https://stackoverflow.com/questions/55332641/passing-stdstring-view-to-api-execting-const-stdstring
     */
 
     std::string s{"hello"};
