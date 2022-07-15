@@ -70,7 +70,7 @@ int main()
               << "\n"
               << std::setw(10) << "Joe" << std::setw(10) << 3 << std::endl;
 
-    // Making formatted table - mixed justification (names, column headers right justified, ages left justified)
+    // Making formatted table - mixed justification (names, column headers left justified, ages right justified)
     std::cout << std::left << std::setw(10) << "Name" << std::setw(10) << "Age"
               << "\n"
               << std::setw(10) << "Bob" << std::right << std::setw(10) << 1
