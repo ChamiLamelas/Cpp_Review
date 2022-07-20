@@ -8,6 +8,14 @@
 #include <type_traits>
 #include <string>
 
+/*
+Note that splitting function templates (or class templates) over multiple files has quite a few complications
+with not elegant solutions. See here:
+
+https://isocpp.org/wiki/faq/templates#templates-defn-vs-decl
+https://stackoverflow.com/questions/495021/why-can-templates-only-be-implemented-in-the-header-file
+*/
+
 template <typename T>
 T Max(T a, T b)
 {
