@@ -84,11 +84,22 @@ int main()
     // This results in a large positive number (as size_t is unsigned). Many C++ containers
     // have size_t size return type which with an empty structure, can create difficult bugs.
     size_t x{0};
-    std::cout << x-1<<std::endl;
+    auto xx{x - 1};
+    std::cout << xx << " " << SIZE_MAX << std::endl;
 
-    // This does not seem to carry for all unsigned types, as this expectedly prints -1
+    // Note here that yy actually is an int, but unsigned int and long (being the same on my
+    // compiler/system) act like the above.
     unsigned short y{0};
-    std::cout << y-1 <<std::endl;
+    auto yy{y - 1};
+    std::cout << yy << " " << USHRT_MAX << std::endl;
+
+    unsigned int z{0};
+    auto zz{z - 1};
+    std::cout << zz << " " << UINT_MAX << std::endl;
+
+    unsigned long w{0};
+    auto ww{w - 1};
+    std::cout << ww << " " << ULONG_MAX << std::endl;
 
     return 0;
 }
