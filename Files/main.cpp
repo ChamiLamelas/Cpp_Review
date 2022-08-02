@@ -7,48 +7,55 @@ void Demo();
 
 int main()
 {
-    // Demo();
+    Demo();
 
-
-    Filter();
+    // Filter();
     return 0;
 }
 
-void Filter() {
+void Filter()
+{
     // Prepare copy.txt by copy pasting copy-start.txt
     std::string src{"copy.txt"};
     std::string tmp{"copy-tmp.txt"};
 
     std::ifstream src_r(src, std::ios_base::in);
-    if (!src_r.is_open()) {
+    if (!src_r.is_open())
+    {
         std::cout << src + " failed to open (r)" << std::endl;
     }
 
     std::fstream tmp_rw(tmp, std::ios_base::in | std::ios_base::out | std::ios_base::trunc);
-    if (!tmp_rw.is_open()) {
+    if (!tmp_rw.is_open())
+    {
         std::cout << tmp + " failed to open (rw)" << std::endl;
     }
 
     bool first_line{true};
     std::string line;
-    while (src_r.good()) {
+    while (src_r.good())
+    {
         std::getline(src_r, line);
-        if (line[0] == 'a') {
+        if (line[0] == 'a')
+        {
             continue;
         }
 
-        if (!first_line) {
+        if (!first_line)
+        {
             tmp_rw << "\n";
         }
         tmp_rw << line;
-        if (first_line) {
+        if (first_line)
+        {
             first_line = false;
         }
     }
     src_r.close();
 
     std::ofstream src_w(src, std::ios_base::out | std::ios_base::trunc);
-    if (!src_w.is_open()) {
+    if (!src_w.is_open())
+    {
         std::cout << src + " failed to open (w)" << std::endl;
     }
 
@@ -56,13 +63,16 @@ void Filter() {
     tmp_rw.seekg(0);
     first_line = true;
 
-    while (tmp_rw.good()) {
+    while (tmp_rw.good())
+    {
         std::getline(tmp_rw, line);
-        if (!first_line) {
+        if (!first_line)
+        {
             src_w << "\n";
         }
         src_w << line;
-        if (first_line) {
+        if (first_line)
+        {
             first_line = false;
         }
     }
@@ -71,7 +81,8 @@ void Filter() {
     src_w.close();
 }
 
-void Demo() {
+void Demo()
+{
     std::fstream file1;
 
     // Open a file (trunc => create one if one doesn't exist) for reading and writing (specified by in or out)
@@ -119,5 +130,19 @@ void Demo() {
         }
 
         file4.close();
+    }
+
+    // You can actually open and read an empty line from an empty text file
+    std::ifstream file5("empty.txt", std::ios_base::in);
+    if (file5.is_open())
+    {
+        std::cout << "Opened empty" << std::endl;
+        std::string line;
+        while (file5.good())
+        {
+            std::getline(file5, line);
+            std::cout << "Line: " << line << std::endl;
+        }
+        file5.close();
     }
 }
