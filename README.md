@@ -34,6 +34,8 @@
 * With a C++ file selected, go to Terminal > Run Task > *Label of task in tasks.json*, this creates an .exe file.
   * Faster: after setting a default build task (Terminal > Configure Default Build Task), use Ctrl+Shift+B.
 * Can run file.exe with ./file in a terminal window.
+* When the task runs it opens a new Visual Studio Code terminal that will cause you to be bumped out of the regular powershell terminal (where you run ./file) even if the build is successful (it will prompt you to press any key to close). Leaving the new terminal open has no effect, you will still get switched to it on subsequent task builds. Can fix this issue following [this StackOverflow article](https://stackoverflow.com/a/67872135). 
+ * As mentioned in the article, any issues that do occur with the build are shown (in the nicer) problems tab.
 
 ## C++ Terminology
 

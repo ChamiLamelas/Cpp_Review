@@ -194,6 +194,10 @@ int main()
 
     std::vector<int> vec16{3, 1, 4, 2, 3};
     // sort descending
+    // If defining a custom predicate, it must specify a strick weak ordering, see:
+    // https://cplusplus.com/reference/algorithm/sort/
+    // https://stackoverflow.com/a/19757240
+    // https://stackoverflow.com/a/981299
     std::sort(vec16.begin(), vec16.end(), std::greater<int>());
     DisplayContainer(vec16);
 

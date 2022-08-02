@@ -22,6 +22,10 @@
 				"kind": "build",
 				"isDefault": true
 			},
+			"presentation": {
+				"reveal": "silent",
+				"close": true
+			},
 			"detail": "compiler: C:\\Users\\chami\\chami_folder\\programming\\cpp\\mingw64\\bin\\g++.exe"
 		},
 		{
