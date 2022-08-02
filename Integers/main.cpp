@@ -86,5 +86,9 @@ int main()
     size_t x{0};
     std::cout << x-1<<std::endl;
 
+    // This does not seem to carry for all unsigned types, as this expectedly prints -1
+    unsigned short y{0};
+    std::cout << y-1 <<std::endl;
+
     return 0;
 }
