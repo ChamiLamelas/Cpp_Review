@@ -81,5 +81,10 @@ int main()
         }
     }
 
+    // This results in a large positive number (as size_t is unsigned). Many C++ containers
+    // have size_t size return type which with an empty structure, can create difficult bugs.
+    size_t x{0};
+    std::cout << x-1<<std::endl;
+
     return 0;
 }
