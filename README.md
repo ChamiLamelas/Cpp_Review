@@ -28,6 +28,8 @@
   * For example, can modify it to build all files in a directory and then write to a specific executable (see [here](https://code.visualstudio.com/docs/cpp/config-mingw#_modifying-tasksjson)).
 * To set up intellisense and more go to View > Command Palette > C/C++: Edit Configurations (UI).
   * This adds the c_cpp_properties.json configuration file.
+* Can also add to args the ability to statically link dependencies when compiling an executable. This is done by adding "-static". This allows for copying over the executable to be run on other Windows machines without having to copy dependencies represented via dynamic link libraries (DLL). 
+  * See [this post](https://stackoverflow.com/a/26107550) on the difference in these two types of linking.
 
 ## Building and Running C++ Program
 
