@@ -30,7 +30,7 @@
   * This adds the c_cpp_properties.json configuration file.
 * Can also add to args the ability to statically link dependencies when compiling an executable. This is done by adding "-static". This allows for copying over the executable to be run on other Windows machines without having to copy dependencies represented via dynamic link libraries (DLL). 
   * See [this post](https://stackoverflow.com/a/26107550) and [this one](https://stackoverflow.com/a/311889) on the difference in these two types of linking.
-* See [this post](https://stackoverflow.com/a/48923013) which discusses how you can choose the formatting style used
+* See [this post](https://stackoverflow.com/a/48923013) and [this one](https://stackoverflow.com/a/50489812) which discuss how you can choose the formatting style used
 by the C/C++ extension in VS code. 
   * To find extension settings, go to Extensions > C/C++ (By Microsoft) > The gear > Extension Settings > Scroll down till you see `C_Cpp: Clang_format_fallback Style`.
   * Example: Using the Google style will put opening curly brackets on the same line versus on a new line (Visual Studio style).
