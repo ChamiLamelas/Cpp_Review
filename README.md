@@ -33,7 +33,7 @@
 * See [this post](https://stackoverflow.com/a/48923013) and [this one](https://stackoverflow.com/a/50489812) which discuss how you can choose the formatting style used
 by the C/C++ extension in VS code. 
   * To find extension settings, go to Extensions > C/C++ (By Microsoft) > The gear > Extension Settings > Scroll down till you see `C_Cpp: Clang_format_fallback Style`.
-  * Example: Using the Google style will put opening curly brackets on the same line versus on a new line (Visual Studio style).
+  * Example: Using the Google style will put opening curly brackets on the same line versus on a new line (Visual Studio style). But it will put short functions, loops, if statements on 1 line, this can be reverted using formatting options like [these](https://clang.llvm.org/docs/ClangFormatStyleOptions.html).
 
 ## Building and Running C++ Program
 
