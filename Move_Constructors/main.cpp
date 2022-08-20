@@ -24,6 +24,14 @@ class MyClass {
     // which is a built in C++ optimization to use copy
     // constructor to create a temporary object that will be
     // copied from immediately and destroyed.
+    // for a class that has dynamically allocated resources,
+    // copy the pointers over instead of dynamically allocating
+    // a copy of that memory (because the temporary objects
+    // that share those pointers will be destroyed). 
+    // when implementing move constructor and move assignment
+    // operator for classes that have STL objects (string, vector
+    // etc.) use std::move which will call those objects move
+    // operators
     MyClass(const MyClass &&src) {
         std::cout << "move constructor called" << std::endl;
         this->i = src.i;
@@ -43,5 +51,9 @@ int main() {
     // Copy constructor is also called in creating the
     // temporary object returned by Copy(c) that is a copy
     // of c constructed inside Copy
+    // This example does not really illuminate to me the
+    // necessity of the move constructor, why call Copy()
+    // to do a deep copy when the copy constructor is being
+    // used anyway? 
     MyClass c2{Copy(c)};
 }
